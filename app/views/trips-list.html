@@ -1,34 +1,35 @@
-<section class="trip-list row">
-  <div class="container">
-    <h4>These are the new trips, pick one to edit</h4>
+<section class="trip-list">
+  <div class="view-header">
+    <h1>Trips List</h1>
+    <p>These are the new trips, pick one to edit</p>
+  </div>
 
-    <div class="trip trip-edit">
+    <div class="trip trip-edit" *ngIf="editor === true">
       <label for="title">Give a title to your trip</label>
-      <input type="text" id="title">
+      <input type="text" id="title" [(ngModel)]="trip.title">
       <label for="arrival_date">When start your trip?</label>
       <input type="text" id="arrival_date">
       <label for="description">Tell us more about your trip</label>
       <input type="text" id="description">
-      <button>Close</button>
+      <button (click)="toggleEditor(false)">Close</button>
     </div>
+    <div class="trip" *ngFor="let trip of trips"
+      (click)="selectTrip(trip)"
+      [class.trip-selected]="trip === selectedTrip">
 
-    <div class="box">
-      <div class="trip">
-        <div class="trip-header">
-          <div class="trip-title">
-            <h3></h3>
-          </div>
-          <div class="trip-arrival">
-            <span></span>
-          </div>
+      <div class="trip-header">
+        <div class="trip-title">
+          <h3>{{ trip.title }}</h3>
         </div>
+        <div class="trip-arrival">
+          <span>{{ trip.arrival }}</span>
+        </div>
+      </div>
 
-        <div class="trip-details">
-          <div class="trip-desc">
-            
-          </div>
+      <div class="trip-details">
+        <div class="trip-desc">
+          {{ trip.description }}
         </div>
       </div>
     </div>
-  </div>
 </section>

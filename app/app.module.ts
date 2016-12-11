@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { TrippioHeaderComponent }  from './components/trippio-header.component';
@@ -12,7 +12,26 @@ import { NewTripComponent }  from './components/new-trip.component';
 
 @NgModule({
   imports:      [ BrowserModule,
-                  FormsModule ],
+                  FormsModule,
+                  RouterModule.forRoot([
+                    {
+                      path: '',
+                      redirectTo: '/home',
+                      pathMatch: 'full'
+                    },
+                    {
+                      path: 'home',
+                      component: TrippioHomeComponent
+                    },
+                    {
+                      path: 'trips',
+                      component: TripsListComponent
+                    },
+                    {
+                      path: 'new-trip',
+                      component: NewTripComponent
+                    }
+                  ])],
   declarations: [ AppComponent,
                   TrippioHeaderComponent,
                   TrippioFooterComponent,

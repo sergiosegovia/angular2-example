@@ -1,0 +1,21 @@
+<div class="view-header">
+  <h1>New Trip</h1>
+  <p>Fill all fields to create a new trip</p>
+</div>
+
+<div class="new-trip">
+  <input class="form-control" type="text" #title placeholder="Your trip title">
+  <input class="form-control" type="text" #country placeholder="What country?">
+  <input class="form-control" type="text" #city placeholder="What city?">
+  <input class="form-control" type="text" #arrival placeholder="When is your arrival?">
+  <input class="form-control" type="text" #departure placeholder="When is your departure?">
+  <textarea class="form-control" rows="4" #description placeholder="Tell us more about your trip"></textarea>
+  <button (click)="createTrip(
+    title.value,
+    country.value,
+    city.value,
+    arrival.value,
+    departure.value,
+    description.value
+  )">Create Trip</button>
+</div>

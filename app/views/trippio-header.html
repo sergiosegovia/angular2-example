@@ -1,13 +1,14 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
      <div class="container">
        <div class="navbar-header" style="float: left;" >
-         <a class="navbar-brand" href="/">Trippio</a>
+         <a class="navbar-brand" routerLink="/home">Trippio</a>
 
 
        </div>
-        <ul class="nav navbar-nav navbar-right" >
-          <li><a  style="float: right;">Trips List</a></li>
-          <li><a  style="float: right;">Home</a></li>
+        <ul class="nav navbar-nav navbar-right" style="float: right;">
+          <li style="display: inline-block"><a routerLink="/home" >Home</a></li>
+          <li style="display: inline-block"><a routerLink="/trips">Trips List</a></li>
+          <li style="display: inline-block"><a routerLink="/new-trip">New Trip</a></li>
         </ul>
      </div>
 </nav>
